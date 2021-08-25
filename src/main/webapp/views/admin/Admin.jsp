@@ -53,31 +53,22 @@
 
             <tbody>
 
-                <c:forEach items="${listUsers}" varStatus="envp" var="emp">
+            <c:forEach items="${ listUser }" var="user" varStatus="status">
                 <tr>
-                    <td>${envp.count}</td>
-                    <td>${ emp.nombreEmpleados } ${emp.ApellidoPaterno} ${emp.ApellidoMaterno}</td>
-                    <td>${ emp.Calle }</td>
-                    <td>${ emp.Colonia }</td>
-                    <td>${ emp.Municipio }</td>
+                    <td>${ status.count }</td>
+                <td>${ user.nombreEmpleados } ${ user.aPaterno } </td>
+                <td>${ user.calle }</td>
+                <td>${ user.colonia }</td>
+                <td>${ user.municipio }</td>
 
                     <td>
-                        <c:if test="${ emp.envp == 1 }">
-                            <form action="${context}/getUserById" method="POST" style="display: inline;">
-                                <input type="hidden" name="action" value="getUserById">
-                                <input type="hidden" name="id" value="${ emp.idEmpleados }">
                                 <button type="submit" class="btn btn-outline-primary"><i class="fas fa-edit"></i> Modificar</button>
-                            </form>
-                            <button id="btn-details-${ envp.count }" data-code="${  emp.idEmpleados }" type="submit" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#details"><i class="fas fa-info-circle"></i> Detalles</button>
+                            <button id="btn-details" data-code="" type="submit" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#details"><i class="fas fa-info-circle"></i> Detalles</button>
 
-                            <button id="btn-delete-${ envp.count }" data-code="${ emp.idEmpleados }" data-text="${ emp.name } ${ emp.aPaternorson }" type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete"><i class="fas fa-trash"></i> Eliminar</button>
-                        </c:if>
-
+                            <button id="btn-delete" data-code="" data-text="" type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete"><i class="fas fa-trash"></i> Eliminar</button>
 
                     </td>
-                </tr>
-                </c:forEach>
-
+                    </c:forEach>
             </tbody>
 
         </table>

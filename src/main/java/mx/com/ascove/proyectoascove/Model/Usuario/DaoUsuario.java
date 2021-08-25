@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import mx.com.ascove.proyectoascove.Model.BeanEmpleados;
 import mx.com.ascove.proyectoascove.Service.ConnectionMySQL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,8 +15,8 @@ public class DaoUsuario {
     ResultSet rs;
     Logger logger = LoggerFactory.getLogger(DaoUsuario.class);
 
-    public BeanUsuario login(String user, String pass) throws SQLException {
-        BeanUsuario bean = new BeanUsuario();
+    public BeanEmpleados login(String user, String pass) throws SQLException {
+        BeanEmpleados bean = new BeanEmpleados();
 
         try {
 
@@ -28,14 +29,13 @@ public class DaoUsuario {
             rs = cstm.executeQuery();
 
             while (rs.next()){
-                bean.setIdUsuario(rs.getInt("idUsuario"));
                 bean.setCorreo(rs.getString("Correo"));
-                bean.setcontra(rs.getString("contra"));
+                bean.setContra(rs.getString("contra"));
                 bean.setIdRoles(rs.getInt("Rol"));
             }
         } catch (SQLException e){
             logger.error("Ha ocurrido un error:" +e.getMessage());
-            return new BeanUsuario();
+            return new BeanEmpleados();
         } finally {
             //Cerrar las conexione
             con.close();

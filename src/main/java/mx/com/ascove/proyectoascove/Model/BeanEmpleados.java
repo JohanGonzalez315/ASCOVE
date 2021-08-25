@@ -12,12 +12,15 @@ public class BeanEmpleados {
     private String calle;
     private String colonia;
     private int municipio;
-    private BeanUsuario idUsuario;
+    private String correo;
+    private String contra;
+    private int idRoles;
+    private int estado;
 
     public BeanEmpleados() {
     }
 
-    public BeanEmpleados(int idEmpleado, String nombreEmpleados, String aPaterno, String aMaterno, String calle, String colonia, int municipio, BeanUsuario idUsuario) {
+    public BeanEmpleados(int idEmpleado, String nombreEmpleados, String aPaterno, String aMaterno, String calle, String colonia, int municipio, String correo, String contra, int idRoles, int estado) {
         this.idEmpleado = idEmpleado;
         this.nombreEmpleados = nombreEmpleados;
         this.aPaterno = aPaterno;
@@ -25,7 +28,10 @@ public class BeanEmpleados {
         this.calle = calle;
         this.colonia = colonia;
         this.municipio = municipio;
-        this.idUsuario = idUsuario;
+        this.correo = correo;
+        this.contra = contra;
+        this.idRoles = idRoles;
+        this.estado = estado;
     }
 
     public int getIdEmpleado() {
@@ -84,11 +90,35 @@ public class BeanEmpleados {
         this.municipio = municipio;
     }
 
-    public BeanUsuario getIdUsuario() {
-        return idUsuario;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setIdUsuario(BeanUsuario idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getContra() {
+        return contra;
+    }
+
+    public void setContra(String contra) {
+        this.contra = contra;
+    }
+
+    public int getIdRoles() {
+        return idRoles;
+    }
+
+    public void setIdRoles(int idRoles) {
+        this.idRoles = idRoles;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
     }
 }

@@ -32,7 +32,6 @@ public class DaoEmpleados {
             rs = cstm.executeQuery();
 
             while (rs.next()){
-                BeanUsuario user =new BeanUsuario();
                  BeanEmpleados emp = new BeanEmpleados();
 
                 emp.setIdEmpleado(rs.getInt("idEmpleados"));
@@ -42,7 +41,11 @@ public class DaoEmpleados {
                 emp.setCalle(rs.getString("Calle"));
                 emp.setColonia(rs.getString("Colonia"));
                 emp.setMunicipio(rs.getInt("Municipio"));
-                user.setIdUsuario(rs.getInt("Usuario"));
+                emp.setCorreo(rs.getString("correo"));
+                emp.setContra(rs.getString("contra"));
+                emp.setIdRoles(rs.getInt("rol"));
+                emp.setEstado(rs.getInt("estado"));
+
                 listUsers.add(emp);
             }
         }catch(SQLException e){

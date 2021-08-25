@@ -27,7 +27,7 @@ public class ServletAdmin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
              //List<BeanEmpleados> listAdmin = new DaoEmpleados().findAll();
-
+        request.setAttribute("listUsers", new DaoEmpleados().findAll());
         request.getRequestDispatcher("/views/admin/Admin.jsp").forward(request, response);
     }
 
@@ -142,7 +142,7 @@ public class ServletAdmin extends HttpServlet {
                // System.out.println("Aquiiiii222");
                 String user=request.getParameter("correo");
                 String pass=request.getParameter("contra");
-                BeanUsuario usuarios = new BeanUsuario();
+                BeanEmpleados usuarios = new BeanEmpleados();
                 //System.out.println("Aquiiiii");
                 try {
                    // System.out.println("Aquiiiii2233333");
@@ -153,14 +153,14 @@ public class ServletAdmin extends HttpServlet {
                     //pendiente
                     misession.setAttribute("tipo_user", usuarios.getIdRoles());
                     misession.setAttribute("name",usuarios.getCorreo());
-                    misession.setAttribute("correo",usuarios.getcontra());
+                    misession.setAttribute("correo",usuarios.getContra());
 
                     System.out.println("Datos de usuario: "+usuarios.getIdRoles());
                     //Valida que tipo de rol y redirecionamiento
                     switch (usuarios.getIdRoles()){
                         case 1:
                             System.out.println("Sientra");
-                            request.setAttribute("listUsers", new DaoEmpleados().findAll());
+                            request.setAttribute("listUser", new DaoEmpleados().findAll());
                             request.getRequestDispatcher("/views/admin/Admin.jsp").forward(request, response);
                             break;
                         case 2:
